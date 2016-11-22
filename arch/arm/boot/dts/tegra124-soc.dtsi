@@ -172,7 +172,7 @@
 		sda-gpio = <&gpio 158 0>; /* gpio PT6 */
 		nvidia,memory-clients = <14>;
 		status = "okay";
-		clock-frequency = <100000>;
+		clock-frequency = <400000>;
 	};
 
 	i2c3: i2c@7000c500 {
@@ -689,5 +689,13 @@
 		reg = <0x0 0x70012000 0x0 0x2000 /* SE base */
 			0x0 0x7000e400 0x0 0x400>; /* PMC base */
 		interrupts = <0 58 0x04>;
+	};
+
+	pwm: pwm {
+		compatible = "nvidia,tegra124-pwm";
+		reg = <0x7000a000 0x100>;
+		#pwm-cells = <2>;
+		clocks = <&tegra_car 17>;
+		status = "okay";
 	};
 };
